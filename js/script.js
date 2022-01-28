@@ -58,21 +58,27 @@ for(let i = 0; i < list.length; i++){
 const allCats = logListName(cats);
 
 
-// Q8 - help...
+// Q8 
 
 function createCats(cats){
 let listedCats = "";
 
-for(let i = 0; i > cats.length; i++){
-    listedCats += "<div>" + cats[i] + "</div>";
-    return listedCats;
-}
-const finalCats = "<h5>" + listedCats + "</h5>";
-return finalCats;
+for(let i = 0; i < cats.length; i++){
+    let catAge = "Age unknown";
+
+    if(cats[i].age){
+        catAge = cats[i].age;
+    }
+
+    listedCats += `<div>
+    <h5>Name: ${cats[i].name}</h5>
+    <p>Age: ${catAge}</p>
+    </div>`;
+    
+    catContainer = document.querySelector(".cat-container");
+    catContainer.innerHTML = listedCats;
+ }
 }
 
-const listOfCats = createCats(cats);
-console.log(listOfCats);
+createCats(cats);
 
-const catContainer = document.querySelector(".cat-container");
-catContainer.innerHTML = listOfCats;
